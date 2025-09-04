@@ -1,14 +1,25 @@
 name: Ping
+
 on:
   workflow_dispatch:
     inputs:
       msg:
-        description: "Say something"
+        description: "Message to echo"
         required: true
-        default: hi
+        default: "hello"
         type: string
+      release_type:
+        description: "Pick a release type"
+        required: true
+        default: patch
+        type: choice
+        options: [major, minor, patch, snapshot]
+
 jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Message: ${{ github.event.inputs.msg }}"
+      - name: Print inputs
+        run: |
+          echo "msg = ${{ github.event.inputs.msg }}"
+          echo "release_type = ${{ github.event.inputs.release_type }}"

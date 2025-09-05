@@ -6,14 +6,12 @@ on:
   workflow_dispatch:
     inputs:
       release_type:
-        description: >
+        description: |
           **Select the type of release:**
-
           - **major**: Breaking changes.
           - **minor**: New features.
           - **patch**: Bug fixes.
           - **snapshot**: For libraries, valid on all branches.
-
         required: true
         default: patch
         type: choice

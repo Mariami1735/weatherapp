@@ -8,14 +8,16 @@ on:
       release_type:
         description: >
           Select the type of release:
-          - major: Breaking changes or significant new features.
-          - minor: Backward-compatible feature additions.
-          - patch: Bug fixes and small changes.
-          - snapshot: For libraries/Spring Boot starter; valid on all branches.
+
+          - **major**: Breaking changes or significant new features.
+          - **minor**: Backward-compatible feature additions.
+          - **patch**: Bug fixes and small changes.
+          - **snapshot**: Suitable for libraries/Spring Boot starter; valid on all branches.
+
         required: true
         default: patch
         type: choice
-        options: 
+        options:
           - major
           - minor
           - patch

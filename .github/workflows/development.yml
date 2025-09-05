@@ -7,12 +7,12 @@ on:
     inputs:
       release_type:
         description: >
-           **Select the type of release:**
+          **Select the type of release:**
 
           - **major**: Breaking changes.
           - **minor**: New features.
           - **patch**: Bug fixes.
-          - **snapshot**: For libraries, Valid on all branches.
+          - **snapshot**: For libraries, valid on all branches.
 
         required: true
         default: patch

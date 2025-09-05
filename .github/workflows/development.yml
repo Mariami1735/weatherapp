@@ -16,3 +16,15 @@ on:
           - minor
           - patch
           - snapshot
+        project_type:
+        description: "service | library"
+        required: true
+        type: choice
+        options: [service, library]
+
+jobs:
+  release:
+    if: |
+      (inputs.release_type != 'snapshot' && github.ref_name == 'main') ||
+      (inputs.release_type == 'snapshot' && inputs.project_type == 'library') ||
+      (inputs.release_type == 'snapshot' && inputs.project_type == 'service' && github.ref_name == 'main')

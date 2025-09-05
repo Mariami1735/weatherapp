@@ -1,15 +1,11 @@
 name: Release
 
 on:
-  push:
-    branches:
-      - feature/**
   workflow_dispatch:
     inputs:
       release_type:
         description: "Select the type of release:\n- major: Breaking changes\n- minor: New features\n- patch: Bug fixes\n- snapshot: For libraries, valid on all branches"
         required: true
-        default: patch
         type: choice
         options:
           - major

@@ -1,25 +1,22 @@
-name: Ping
-
+name: Release
 on:
+  push:
+    branches:
+      - feature/**
   workflow_dispatch:
     inputs:
-      msg:
-        description: "Message to echo"
-        required: true
-        default: "hello"
-        type: string
       release_type:
-        description: "Pick a release type"
+        description: >
+          Select the type of release:
+          - major: Breaking changes or significant new features.
+          - minor: Backward-compatible feature additions.
+          - patch: Bug fixes and small changes.
+          - snapshot: For libraries/Spring Boot starter; valid on all branches.
         required: true
         default: patch
         type: choice
-        options: [major, minor, patch, snapshot]
-
-jobs:
-  ping:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print inputs
-        run: |
-          echo "msg = ${{ github.event.inputs.msg }}"
-          echo "release_type = ${{ github.event.inputs.release_type }}"
+        options: 
+          - major
+          - minor
+          - patch
+          - snapshot
